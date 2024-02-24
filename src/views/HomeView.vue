@@ -1,17 +1,13 @@
 <template>
-  <span>
-    dalak
-  </span>
+  <div>
+    <ProfitDashboardVue></ProfitDashboardVue>
+  </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue';
+<script setup lang="ts">
+import ProfitDashboardVue from "./ProfitDashboard.vue";
 
-export default defineComponent({
-  name: 'HomeView',
-  components: {
-  },
+component: [ProfitDashboardVue]
 
-});
 </script>
 
