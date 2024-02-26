@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.tw-input {
+  @apply shadow appearance-none leading-tight;
+}
+
+.tw-th {
+  @apply px-6 py-4 font-medium px-6 py-3;
+}
+
+.th-relaive {
+  @apply relative overflow-x-auto shadow-md sm:rounded-lg;
+}

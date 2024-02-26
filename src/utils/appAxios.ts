@@ -1,5 +1,5 @@
 import axios from "axios";
-const  appAxios = axios.create({
+const  httpService = axios.create({
   baseURL: process.env.VUE_APP_API_BASE_URL
 });
 
@@ -10,7 +10,7 @@ interface User {
 const user: User = JSON.parse(localStorage.getItem("user") || "{}");
 
 if (user && user.accessToken) {
-  appAxios.defaults.headers.common["Authorization"] = `Bearer ${user.accessToken}`;
+  httpService.defaults.headers.common["Authorization"] = `Bearer ${user.accessToken}`;
 }
 
-export default appAxios;
+export default httpService;

@@ -1,6 +1,5 @@
 <template>
     <div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
-
         <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
             <div class="w-full max-w-xs">
                 <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
@@ -9,16 +8,16 @@
                             Mail
                         </label>
                         <input
-                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                            id="username" type="text" placeholder="Username" v-model="getUser.email">
+                            class=" border rounded w-full py-2 px-3 text-gray-700 tw-input focus:outline-none focus:shadow-outline"
+                            id="username" type="text" placeholder="Username" v-model="getUser.email" />
                     </div>
                     <div class="mb-6">
                         <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
                             Password
                         </label>
                         <input
-                            class="shadow appearance-none border  w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
-                            id="password" type="password" placeholder="******************" v-model="getUser.password">
+                            class=" border w-full py-2 px-3 text-gray-700 mb-3 tw-input focus:outline-none focus:shadow-outline"
+                            id="password" type="password" placeholder="******************" v-model="getUser.password" />
                     </div>
                     <div class="flex items-center justify-between">
                         <button
@@ -31,35 +30,26 @@
                         </a>
                     </div>
                 </form>
-
             </div>
-
         </div>
     </div>
 </template>
 
 <script setup lang="ts">
-import { watch, computed } from 'vue'
-import { useStore } from 'vuex'
-
-const store = useStore()
-
+import { watch, computed } from "vue";
+import { useStore } from "vuex";
+import { useRouter } from "vue-router";
+const store = useStore();
+const router = useRouter();
 const getUser = computed(() => {
     return store.state.auth.loginUser;
 });
 
-
 const login = async () => {
-    await store.dispatch('authenticate')
-    await store.dispatch('getUserInfo')
-}
-
-
-watch(getUser, async (newValue, oldValue) => {
-    console.log('new', newValue)
-})
+    await store.dispatch("authenticate");
+    await router.push("/");
+};
 </script>
-
 
 <style lang="scss" scoped>
 input {}

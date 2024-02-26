@@ -1,15 +1,15 @@
 <template>
-  <Layout />
+  <LayoutVue />
   <router-view />
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import Layout from './Layouts/_layout.vue';
+import LayoutVue from "./Layouts/Layout.vue"
 
 export default defineComponent({
   components: {
-    Layout
+    LayoutVue
   },
 
 });
