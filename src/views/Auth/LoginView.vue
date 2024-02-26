@@ -47,7 +47,7 @@ const getUser = computed(() => {
 
 const login = async () => {
     await store.dispatch("authenticate");
-    await router.push("/");
+    await router.push("/profit");
 };
 </script>
 

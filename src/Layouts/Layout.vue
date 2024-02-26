@@ -2,14 +2,14 @@
     <nav class="nav-bar bg-gray-800">
         <div class="router">
             <span class="text-neutral-300 mx-3">{{ userData.firstName }} {{ userData.lastName }}</span>
-            <router-link to="/" class="bg-red-800 text-neutral-100 px-4 py-1 rounded-sm"
-                @click="logout">Logout</router-link>
+            <button to="/" class="bg-red-800 text-neutral-100 px-4 py-1 rounded-sm" @click="logout">Logout</button>
+
         </div>
     </nav>
 </template>
 
 <script lang="ts">
-import { watch, computed, onMounted } from 'vue'
+import { computed, onMounted } from 'vue'
 import { useStore } from 'vuex'
 import router from '@/router'
 
@@ -39,7 +39,7 @@ export default {
 
 
         return {
-            userData, logout
+            userData, logout,
         }
     },
 

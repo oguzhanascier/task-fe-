@@ -66,13 +66,7 @@ const actions = {
       });
   },
 
-  async getUserInfo({
-    state,
-    commit,
-  }: {
-    state: IAuthState;
-    commit: CommitFunction;
-  }) {
+  async getUserInfo({ commit }: { state: IAuthState; commit: CommitFunction }) {
     const user = await JSON.parse(localStorage.getItem("user") || "{}");
 
     if (user !== null) {

@@ -1,5 +1,5 @@
 <template>
-  <div id="container">
+  <div id="container" v-if="salesData?.length > 1">
     <div class="grid justify-items-end px-5 my-3">
       <select v-model="selectedDay" @change="updateDays" class="px-3 border-2 border-indigo-500 rounded">
         <option value="60">Last 60 Days</option>
@@ -10,6 +10,9 @@
     </div>
     <highcharts :options="chartOptions"></highcharts>
     <skuListVue :salesDates="selectedPoint" />
+  </div>
+  <div v-else>
+    <h3 class="text-xl">Loading...</h3>
   </div>
 </template>
 
@@ -167,10 +170,7 @@ export default defineComponent({
     }
   },
 
-
-
   async mounted() {
-    console.log('created')
     await this.$store.dispatch('getUserInfo')
     await this.$store.dispatch('chartStore/getSalesData')
     await this.fetchSalesData();

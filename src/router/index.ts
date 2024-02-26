@@ -5,14 +5,18 @@ import ProfitDashboard from "../views/Charts/ProfitDashboard.vue";
 const routes: Array<RouteRecordRaw> = [
   {
     path: "/",
-    name: "profit",
-    component: ProfitDashboard,
-    meta: { requiresAuth: true },
+    redirect: { name: "login" },
   },
   {
     path: "/login",
     name: "login",
     component: LoginView,
+  },
+  {
+    path: "/profit",
+    name: "profit",
+    component: ProfitDashboard,
+    meta: { requiresAuth: true },
   },
 ];
 
@@ -29,12 +33,8 @@ router.beforeEach((to, from, next) => {
     token = JSON.parse(user).accessToken;
   }
 
-  if (to.matched.some((record) => record.meta.requiresAuth)) {
-    if (token) {
-      next();
-    } else {
-      next({ name: "login" });
-    }
+  if (to.name !== "login" && !token) {
+    next({ name: "login" });
   } else {
     next();
   }

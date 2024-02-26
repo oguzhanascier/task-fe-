@@ -1,6 +1,6 @@
 <template>
   <div>
-    <ProfitDashboardVue></ProfitDashboardVue>
+    <ProfitDashboardVue />
   </div>
 </template>
 
